@@ -3,7 +3,7 @@
 <launch>
     <!-- joy -->
     <node pkg="joy" exec="joy_node">
-        <param name="dev" value="/dev/input/js2"/>
+        <param name="dev" value="/dev/input/js0"/>
     </node>
     <!-- cmd_vel publisher -->
     <node pkg="teleop_twist_joy" exec="teleop_node">
@@ -11,16 +11,14 @@
         <param name="axis_linear.y" value="0"/>
         <param name="axis_angular.yaw" value="3"/>
 
-        <param name="scale_linear.x" value="320.0"/>
-        <param name="scale_linear.y" value="320.0"/>
-        <param name="scale_angular.yaw" value="5400.0"/>
+        <param name="scale_linear.x" value="30.0"/>
+        <param name="scale_linear.y" value="30.0"/>
+        <param name="scale_angular.yaw" value="-2100.0"/>
 
         <param name="require_enable_button" value="false"/>
-        <param name="enable_turbo_button" value="11"/>
-        <param name="scale_linear_turbo" value="1.0"/>
-        <param name="scale_angular_turbo" value="1.0"/>
+        <param name="enable_turbo_button" value="-1"/>
     </node>
-    <node pkg="p9n_interface_2024" exec="robot2_3"/>
+    <node pkg="p9n_interface_2024" exec="robot2_1"/>
     <node pkg="differential_two_wheel_control" exec="differential_two_wheel_control"/>
-    <node pkg="controller_2024b" exec="controller_2024b_B"/>
+    <node pkg="controller_2024b" exec="controller_2024b_C"/>
 </launch>
