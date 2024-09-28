@@ -3,7 +3,7 @@
 <launch>
     <!-- joy -->
     <node pkg="joy" exec="joy_node">
-        <param name="dev" value="/dev/input/js2"/>
+        <param name="device_id" value="0"/>
     </node>
     <!-- cmd_vel publisher -->
     <node pkg="teleop_twist_joy" exec="teleop_node">
@@ -13,7 +13,7 @@
 
         <param name="scale_linear.x" value="320.0"/>
         <param name="scale_linear.y" value="320.0"/>
-        <param name="scale_angular.yaw" value="5400.0"/>
+        <param name="scale_angular.yaw" value="10800.0"/>
 
         <param name="require_enable_button" value="false"/>
         <param name="enable_turbo_button" value="11"/>
