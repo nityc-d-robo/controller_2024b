@@ -32,7 +32,7 @@ class Controller2024b_A(Node):
             10
         )
         self.diff_2_2_msg = DiffDrive()
-        self.timer = self.create_timer(0.01, self.i2c_send)
+        self.timer = self.create_timer(0.05, self.i2c_send)
 
     def i2c_send(self):
         packet = struct.pack(
