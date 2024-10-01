@@ -13,7 +13,7 @@
 
         <param name="scale_linear.x" value="320.0"/>
         <param name="scale_linear.y" value="320.0"/>
-        <param name="scale_angular.yaw" value="10800.0"/>
+        <param name="scale_angular.yaw" value="-10800.0"/>
 
         <param name="require_enable_button" value="false"/>
         <param name="enable_turbo_button" value="11"/>
