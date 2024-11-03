@@ -25,7 +25,8 @@ setup(
         'console_scripts': [
             'controller_2024b_A = controller_2024b.controller_2024b_A:main',
             'controller_2024b_B = controller_2024b.controller_2024b_B:main',
-            'controller_2024b_C = controller_2024b.controller_2024b_C:main'
+            'controller_2024b_C = controller_2024b.controller_2024b_C:main',
+            'controller_2024b_2_4 = controller_2024b.controller_2024b_2_4:main'
         ],
     },
 )
