@@ -5,8 +5,25 @@
     <node pkg="joy" exec="joy_node">
         <param name="device_id" value="0"/>
     </node>
+    <node pkg="allocator_2024b" exec="allocator_2024b" />
+"
     <!-- cmd_vel publisher -->
-    <node pkg="teleop_twist_joy" exec="teleop_node">
+    <node pkg="controller_2024b" exec="controller_2024b_B" name="TTJ1"/>
+        <node pkg="teleop_twist_joy" exec="teleop_node">
+        <param name="axis_linear.x" value="1"/>
+        <param name="axis_linear.y" value="0"/>
+        <param name="axis_angular.yaw" value="3"/>
+
+        <param name="scale_linear.x" value="1.0"/>
+        <param name="scale_linear.y" value="1.0"/>
+        <param name="scale_angular.yaw" value="1.0"/>
+
+        <param name="require_enable_button" value="false"/>
+
+        <remap from="/joy" to="/rjoy1"/>
+        <remap from="/cmd_vel" to="/cmd_vel1_manual"/>
+    </node>
+    <node pkg="teleop_twist_joy" exec="teleop_node" name="TTJ2_3">
         <param name="axis_linear.x" value="1"/>
         <param name="axis_linear.y" value="0"/>
         <param name="axis_angular.yaw" value="3"/>
@@ -17,10 +34,18 @@
 
         <param name="require_enable_button" value="false"/>
         <param name="enable_turbo_button" value="11"/>
-        <param name="scale_linear_turbo" value="1.0"/>
-        <param name="scale_angular_turbo" value="1.0"/>
+        <param name="scale_linear_turbo" value="-1.0"/>
+        <param name="scale_angular_turbo" value="-1.0"/>
+        <remap from="/joy" to="/rjoy2_3"/>
+        <remap from="/cmd_vel" to="/cmd_vel2_3"/>
     </node>
-    <node pkg="p9n_interface_2024" exec="robot2_3"/>
-    <node pkg="differential_two_wheel_control" exec="differential_two_wheel_control"/>
-    <node pkg="controller_2024b" exec="controller_2024b_B"/>
+    <node pkg="p9n_interface_2024" exec="robot1">
+        <remap from="/joy" to="/rjoy1"/>
+    </node>
+    <node pkg="p9n_interface_2024" exec="robot2_3">
+        <remap from="/joy" to="/rjoy2_3"/>
+    </node>
+    <node pkg="differential_two_wheel_control" exec="differential_two_wheel_control">
+        <remap from="/cmd_vel" to="/cmd_vel2_3"/>
+    </node>
 </launch>
